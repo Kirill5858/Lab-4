@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+class string
+{
+    char * value;
+    int l;
+public:
+    string(): value(new char [1] {}), l(0) {};
+    string( const string&s)
+    {
+        l=s.l;
+        value= new char [l+1];
+        for (int i=0; i<=l;i++)
+            value[i]=s.value[i];
+    }
+    friend ostream & operator <<(ostream & outputStream,const string &s)
+    {
+    return outputStream << s.value;
+    }
+    ~string()
+    {
+        delete [] value;
+    }
+};
+int main()
+{
+    return 0;
+}
